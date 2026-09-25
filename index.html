@@ -577,8 +577,7 @@
 
     fetch(ENDPOINT, {
       method: 'POST',
-      // TEMP DEBUG: mode 'no-cors' removed so we can see the real response in DevTools Network tab.
-      // Put this back to 'no-cors' once things are working.
+      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     })
