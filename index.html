@@ -1,1 +1,600 @@
-<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>EXCEL 17NW | Get to Know Me</title><link rel='preconnect' href='https://fonts.googleapis.com'><link rel='preconnect' href='https://fonts.gstatic.com' crossorigin><link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap' rel='stylesheet'><style>:root{--b:#123f9a;--b2:#6aa8ff;--r:#e3314b;--bg:#f6f8fc}*{box-sizing:border-box}body{margin:0;font-family:Poppins,sans-serif;background:var(--bg)}.wrap{max-width:700px;margin:auto;padding:16px}.hero{background:linear-gradient(135deg,#0e2d7a,#1e4ba5,#5f9fff);color:#fff;padding:48px 24px;border-radius:30px;text-align:center}.hero h1{margin:10px 0;font-size:3rem}.hero .team{letter-spacing:4px}.card{background:#fff;padding:22px;border-radius:22px;margin-top:18px;box-shadow:0 8px 20px rgba(0,0,0,.08)}input,textarea,select{width:100%;padding:14px;margin:8px 0;border:1px solid #d9e0ea;border-radius:14px;font-family:inherit}textarea{min-height:110px}.step{display:none}.step.active{display:block}.nav{display:flex;gap:10px;margin-top:16px}.btn{flex:1;padding:16px;border:none;border-radius:14px;font-weight:600}.next,.submit{background:var(--b);color:#fff}.back{background:#e8edf8}.progress{height:10px;background:#d8e3f8;border-radius:99px;overflow:hidden;margin:15px 0}.bar{height:100%;width:20%;background:var(--r);transition:.3s}label{display:block;margin:8px 0}h3{color:var(--b)}</style></head><body><div class='wrap'><div class='hero'><div class='team'>EXCEL 17NW</div><h1>Get to Know Me</h1><p>Help us make tournament weekends, meals, activities and team events even better.</p></div><div class='progress'><div class='bar' id='bar'></div></div><form><div class='card step active'><h3>🤍 About Me</h3><input placeholder='Name'><input placeholder='Birthday (MM/DD)'><input placeholder='Favorite Color'><select><option>T‑Shirt Size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select></div><div class='card step'><h3>🩵 Food & Travel</h3><textarea placeholder='Food allergies, restrictions, foods you avoid...'></textarea><label><input type='checkbox'> Team Dinners</label><label><input type='checkbox'> Escape Rooms</label><label><input type='checkbox'> Photo Spots</label><label><input type='checkbox'> Art Activities</label><input placeholder="One activity you've always wanted to try"></div><div class='card step'><h3>🩵 Favorites</h3><p>Leave any blank if you don't have a favorite 😊</p><input placeholder='Favorite Music Artist'><input placeholder='Favorite Store'><input placeholder='Favorite Scent'><input placeholder='Favorite Candy'><input placeholder='Favorite Starbucks, Dutch Bros, Sonic, or other go‑to drink'></div><div class='card step'><h3>🎁 Just For Fun</h3><textarea placeholder='If a teammate had $20 at Target, what aisle should they shop in?'></textarea><textarea placeholder='What are you currently obsessed with?'></textarea><textarea placeholder='What would you hope is in a surprise goodie bag?'></textarea><textarea placeholder="What gifts aren't really your thing?"></textarea></div><div class='card step'><h3>⭐ Anything Else?</h3><textarea placeholder='Anything you would like the team moms to know?'></textarea></div><div class='nav'><button type='button' class='btn back' onclick='move(-1)'>Back</button><button type='button' class='btn next' id='nextBtn' onclick='move(1)'>Next</button></div></form></div><script>let i=0;const s=[...document.querySelectorAll('.step')];function render(){s.forEach((e,n)=>e.classList.toggle('active',n===i));document.getElementById('bar').style.width=((i+1)/s.length*100)+'%';document.querySelector('.back').style.visibility=i? 'visible':'hidden';document.getElementById('nextBtn').textContent=i===s.length-1?'Submit':'Next';}function move(d){if(i===s.length-1&&d===1){alert('Form ready. Connect Google Sheets next.');return;}i=Math.max(0,Math.min(s.length-1,i+d));render()}render();</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EXCEL 17NW | Get to Know Me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --royal: #1E4BA5;
+    --royal-dark: #133268;
+    --sky: #A8D8F0;
+    --red: #D7263D;
+    --bg: #F5F8FC;
+    --card: #FFFFFF;
+    --ink: #16233D;
+    --ink-soft: #5A6B85;
+    --radius: 20px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(160deg,var(--royal) 0%, var(--royal-dark) 100%);
+    color:white;
+    padding:64px 24px 88px;
+    text-align:left;
+  }
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:rgba(168,216,240,0.18);
+  }
+  .hero::before{ width:320px; height:320px; top:-140px; right:-90px; }
+  .hero::after{ width:180px; height:180px; bottom:-90px; left:-40px; background:rgba(215,38,61,0.25); }
+  .hero-inner{ position:relative; z-index:2; max-width:560px; margin:0 auto; }
+  .hero-kicker{
+    display:inline-block;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.04em;
+    color:var(--sky);
+    background:rgba(255,255,255,0.08);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(34px, 8vw, 52px);
+    line-height:1.05;
+    font-weight:800;
+    margin:0 0 14px;
+  }
+  .hero p{
+    font-size:16px;
+    line-height:1.55;
+    color:rgba(255,255,255,0.85);
+    max-width:420px;
+    margin:0;
+  }
+
+  /* ---------- PROGRESS ---------- */
+  .progress-wrap{
+    max-width:560px;
+    margin:-40px auto 0;
+    padding:0 24px;
+    position:relative;
+    z-index:3;
+  }
+  .progress-card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:0 12px 30px rgba(19,50,104,0.14);
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    gap:6px;
+  }
+  .progress-step{
+    flex:1;
+    text-align:center;
+    font-size:11px;
+    font-weight:600;
+    color:#C4CEDD;
+    position:relative;
+  }
+  .progress-step .dot{
+    width:10px; height:10px; border-radius:50%;
+    background:#E3E9F2;
+    margin:0 auto 6px;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .progress-step.active{ color:var(--royal); }
+  .progress-step.active .dot{ background:var(--royal); transform:scale(1.3); }
+  .progress-step.done .dot{ background:var(--sky); }
+  .progress-step.done{ color:var(--ink-soft); }
+
+  /* ---------- FORM AREA ---------- */
+  main{ max-width:560px; margin:0 auto; padding:32px 24px 100px; }
+  .step{ display:none; animation: rise .35s ease; }
+  .step.active{ display:block; }
+  @keyframes rise{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;} }
+
+  .step-eyebrow{ font-size:14px; font-weight:600; color:var(--red); margin-bottom:6px; }
+  .step-title{ font-size:24px; font-weight:700; margin:0 0 8px; }
+  .step-sub{ font-size:14px; color:var(--ink-soft); line-height:1.5; margin:0 0 26px; max-width:70ch; }
+
+  .field{ margin-bottom:20px; }
+  .field label{ display:block; font-size:13px; font-weight:600; color:var(--ink); margin-bottom:6px; }
+  .field input[type="text"],
+  .field select,
+  .field textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:15px;
+    padding:13px 14px;
+    border-radius:14px;
+    border:1.5px solid #DCE4F0;
+    background:#FBFCFE;
+    color:var(--ink);
+    outline:none;
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field input[type="text"]:focus,
+  .field select:focus,
+  .field textarea:focus{
+    border-color:var(--royal);
+    box-shadow:0 0 0 4px rgba(30,75,165,0.12);
+  }
+  .field textarea{ min-height:96px; resize:vertical; line-height:1.5; }
+  .field .hint{ font-size:12.5px; color:var(--ink-soft); margin-top:6px; line-height:1.45; }
+
+  .birthday-row{ display:flex; gap:12px; }
+  .birthday-row .field{ flex:1; margin-bottom:0; }
+
+  .two-col{ display:grid; grid-template-columns:1fr; gap:16px; }
+  @media (min-width:640px){ .two-col{ grid-template-columns:1fr 1fr; } }
+
+  fieldset{ border:none; padding:0; margin:0 0 20px; }
+  .check-grid{ display:grid; grid-template-columns:1fr; gap:10px; }
+  @media (min-width:480px){ .check-grid{ grid-template-columns:1fr 1fr; } }
+  .check-option{
+    display:flex; align-items:center; gap:10px;
+    border:1.5px solid #DCE4F0;
+    border-radius:14px;
+    padding:12px 14px;
+    font-size:14px;
+    background:#FBFCFE;
+    cursor:pointer;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .check-option:has(input:checked){
+    border-color:var(--royal);
+    background:rgba(30,75,165,0.06);
+  }
+  .check-option input{ accent-color:var(--royal); width:17px; height:17px; flex-shrink:0; }
+
+  .radio-stack{ display:flex; flex-direction:column; gap:10px; }
+  .radio-option{
+    display:flex; align-items:center; gap:10px;
+    border:1.5px solid #DCE4F0;
+    border-radius:14px;
+    padding:12px 14px;
+    font-size:14px;
+    background:#FBFCFE;
+    cursor:pointer;
+  }
+  .radio-option:has(input:checked){
+    border-color:var(--royal);
+    background:rgba(30,75,165,0.06);
+  }
+  .radio-option input{ accent-color:var(--royal); width:17px; height:17px; }
+
+  .note-card{
+    background:rgba(168,216,240,0.18);
+    border-radius:14px;
+    padding:14px 16px;
+    font-size:13.5px;
+    color:var(--royal-dark);
+    margin-bottom:22px;
+  }
+
+  /* ---------- NAV BUTTONS ---------- */
+  .nav-row{ display:flex; gap:12px; margin-top:8px; }
+  .btn{
+    flex:1;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:600;
+    padding:15px 20px;
+    border-radius:16px;
+    border:none;
+    cursor:pointer;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .btn:active{ transform:scale(0.97); }
+  .btn-primary{ background:var(--royal); color:white; }
+  .btn-primary:hover{ background:var(--royal-dark); }
+  .btn-secondary{ background:transparent; color:var(--ink-soft); border:1.5px solid #DCE4F0; flex:0 0 96px; }
+  .btn-finish{ background:var(--red); color:white; }
+
+  /* ---------- THANK YOU ---------- */
+  .done-screen{
+    display:none;
+    text-align:center;
+    padding:80px 28px 60px;
+    max-width:480px;
+    margin:0 auto;
+  }
+  .done-screen.active{ display:block; animation: rise .4s ease; }
+  .done-emoji{ font-size:52px; margin-bottom:18px; }
+  .done-screen h2{ font-size:26px; font-weight:800; color:var(--royal-dark); margin:0 0 12px; }
+  .done-screen p{ font-size:15px; color:var(--ink-soft); line-height:1.6; }
+
+  .error-msg{
+    display:none;
+    background:rgba(215,38,61,0.08);
+    color:var(--red);
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:13.5px;
+    margin-bottom:16px;
+  }
+  .error-msg.active{ display:block; }
+
+  @media (prefers-reduced-motion: reduce){
+    .step, .done-screen{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="hero-kicker">EXCEL 17NW</span>
+    <h1>Get to know me</h1>
+    <p>Help us make tournament weekends, meals, activities, and team events even better — this takes about 3 minutes.</p>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-card" id="progressCard">
+    <div class="progress-step" data-step="1"><div class="dot"></div>About Me</div>
+    <div class="progress-step" data-step="2"><div class="dot"></div>Food</div>
+    <div class="progress-step" data-step="3"><div class="dot"></div>Travel</div>
+    <div class="progress-step" data-step="4"><div class="dot"></div>Faves</div>
+    <div class="progress-step" data-step="5"><div class="dot"></div>Fun</div>
+    <div class="progress-step" data-step="6"><div class="dot"></div>Finish</div>
+  </div>
+</div>
+
+<main>
+  <form id="gtkForm">
+
+    <!-- STEP 1 -->
+    <section class="step active" data-step="1">
+      <div class="step-eyebrow">🤍 About me</div>
+      <h2 class="step-title">Let's start with the basics</h2>
+      <p class="step-sub">Nothing too crazy here, promise.</p>
+
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="birthday-row">
+        <div class="field">
+          <label for="birthdayMonth">Birthday — month</label>
+          <input type="text" id="birthdayMonth" name="birthdayMonth" placeholder="e.g. March" required>
+        </div>
+        <div class="field">
+          <label for="birthdayDay">Day</label>
+          <input type="text" id="birthdayDay" name="birthdayDay" placeholder="e.g. 14" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="favoriteColor">Favorite color</label>
+        <input type="text" id="favoriteColor" name="favoriteColor">
+      </div>
+
+      <div class="field">
+        <label for="tshirtSize">T-shirt size</label>
+        <select id="tshirtSize" name="tshirtSize" required>
+          <option value="" disabled selected>Choose one</option>
+          <option>XS</option><option>S</option><option>M</option>
+          <option>L</option><option>XL</option><option>2XL</option>
+        </select>
+      </div>
+
+      <div class="error-msg" data-error-for="1">Please fill in your name, birthday, and t-shirt size.</div>
+      <div class="nav-row">
+        <button type="button" class="btn btn-primary" data-next>Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="step" data-step="2">
+      <div class="step-eyebrow">🩵 Food &amp; dietary needs</div>
+      <h2 class="step-title">Are there any foods you cannot eat, or prefer not to?</h2>
+      <p class="step-sub">Please include allergies, dietary restrictions, religious restrictions, and foods you strongly dislike or avoid.</p>
+
+      <div class="field">
+        <label for="foodRestrictions">Food restrictions &amp; allergies</label>
+        <textarea id="foodRestrictions" name="foodRestrictions" placeholder="e.g. allergic to peanuts, vegetarian, not a fan of seafood..."></textarea>
+      </div>
+
+      <div class="nav-row">
+        <button type="button" class="btn btn-secondary" data-back>Back</button>
+        <button type="button" class="btn btn-primary" data-next>Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="step" data-step="3">
+      <div class="step-eyebrow">🩵 Activities &amp; travel</div>
+      <h2 class="step-title">Which activities would you enjoy during tournament trips?</h2>
+      <p class="step-sub">Pick as many as you'd like.</p>
+
+      <fieldset>
+        <div class="check-grid">
+          <label class="check-option"><input type="checkbox" name="activities" value="Team dinners">Team dinners</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Mini golf">Mini golf</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Bowling">Bowling</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Arcade">Arcade</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Escape room">Escape room</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Zoo/Aquarium">Zoo/Aquarium</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Sightseeing">Sightseeing</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Cooking or baking experiences">Cooking/baking</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Art or craft activities">Art or craft</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Visiting local attractions">Local attractions</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Aesthetic/photo-worthy spots for pictures">Photo-worthy spots</label>
+          <label class="check-option"><input type="checkbox" name="activities" value="Other">Other</label>
+        </div>
+      </fieldset>
+
+      <h2 class="step-title" style="font-size:18px;margin-top:8px;">How important are photo opportunities during team trips?</h2>
+      <fieldset>
+        <div class="radio-stack">
+          <label class="radio-option"><input type="radio" name="photoImportance" value="Very Important">Very important</label>
+          <label class="radio-option"><input type="radio" name="photoImportance" value="Somewhat Important">Somewhat important</label>
+          <label class="radio-option"><input type="radio" name="photoImportance" value="Not Really Important">Not really important</label>
+          <label class="radio-option"><input type="radio" name="photoImportance" value="Don't Care Either Way">Don't care either way</label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="activityToTry">What's one activity you've always wanted to try?</label>
+        <input type="text" id="activityToTry" name="activityToTry">
+      </div>
+
+      <div class="nav-row">
+        <button type="button" class="btn btn-secondary" data-back>Back</button>
+        <button type="button" class="btn btn-primary" data-next>Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="step" data-step="4">
+      <div class="step-eyebrow">🩵 Favorites</div>
+      <h2 class="step-title">Tell us your favorites</h2>
+      <div class="note-card">Don't have a favorite? No worries — leave it blank and move on 😊</div>
+
+      <div class="two-col">
+        <div class="field"><label for="favSportsTeam">Favorite sports team</label><input type="text" id="favSportsTeam" name="favSportsTeam"></div>
+        <div class="field"><label for="favMusicArtist">Favorite music artist/band</label><input type="text" id="favMusicArtist" name="favMusicArtist"></div>
+        <div class="field"><label for="favTvShow">Favorite TV show</label><input type="text" id="favTvShow" name="favTvShow"></div>
+        <div class="field"><label for="favMovie">Favorite movie</label><input type="text" id="favMovie" name="favMovie"></div>
+        <div class="field"><label for="favBookSeries">Favorite book series</label><input type="text" id="favBookSeries" name="favBookSeries"></div>
+        <div class="field"><label for="favScent">Favorite scent</label><input type="text" id="favScent" name="favScent"></div>
+        <div class="field"><label for="favStore">Favorite store</label><input type="text" id="favStore" name="favStore"></div>
+        <div class="field"><label for="favSaltySnack">Favorite salty snack</label><input type="text" id="favSaltySnack" name="favSaltySnack"></div>
+        <div class="field"><label for="favSweetSnack">Favorite sweet snack</label><input type="text" id="favSweetSnack" name="favSweetSnack"></div>
+        <div class="field"><label for="favCandy">Favorite candy</label><input type="text" id="favCandy" name="favCandy"></div>
+        <div class="field"><label for="favDrink">Favorite drink</label><input type="text" id="favDrink" name="favDrink"></div>
+        <div class="field"><label for="favGoToDrink">Go-to Starbucks / Dutch Bros / Sonic order</label><input type="text" id="favGoToDrink" name="favGoToDrink"></div>
+        <div class="field"><label for="favFastFood">Favorite fast food restaurant</label><input type="text" id="favFastFood" name="favFastFood"></div>
+        <div class="field"><label for="favDessert">Favorite dessert or sweet treat</label><input type="text" id="favDessert" name="favDessert"></div>
+      </div>
+
+      <div class="nav-row">
+        <button type="button" class="btn btn-secondary" data-back>Back</button>
+        <button type="button" class="btn btn-primary" data-next>Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="step" data-step="5">
+      <div class="step-eyebrow">🎁 Just for fun</div>
+      <h2 class="step-title">A few just-for-fun questions</h2>
+
+      <div class="field">
+        <label for="targetAisle">If a teammate had $20 to spend on you at Target, what aisle should they shop in?</label>
+        <textarea id="targetAisle" name="targetAisle"></textarea>
+      </div>
+      <div class="field">
+        <label for="makesDayBetter">What's a small thing that instantly makes your day better?</label>
+        <textarea id="makesDayBetter" name="makesDayBetter"></textarea>
+      </div>
+      <div class="field">
+        <label for="obsessedWith">What are you currently obsessed with?</label>
+        <textarea id="obsessedWith" name="obsessedWith"></textarea>
+      </div>
+      <div class="field">
+        <label for="neverEnoughOf">What can you never have too much of?</label>
+        <textarea id="neverEnoughOf" name="neverEnoughOf"></textarea>
+      </div>
+      <div class="field">
+        <label for="goodieBag">If you received a surprise goodie bag, what would you hope was inside?</label>
+        <textarea id="goodieBag" name="goodieBag"></textarea>
+      </div>
+      <div class="field">
+        <label for="pickMeUpTreat">What's your go-to pick-me-up treat?</label>
+        <textarea id="pickMeUpTreat" name="pickMeUpTreat"></textarea>
+      </div>
+      <div class="field">
+        <label for="giftDislikes">Are there any scents, colors, snacks, drinks, or types of gifts that aren't really your thing?</label>
+        <textarea id="giftDislikes" name="giftDislikes"></textarea>
+      </div>
+
+      <div class="nav-row">
+        <button type="button" class="btn btn-secondary" data-back>Back</button>
+        <button type="button" class="btn btn-primary" data-next>Continue</button>
+      </div>
+    </section>
+
+    <!-- STEP 6 -->
+    <section class="step" data-step="6">
+      <div class="step-eyebrow">🩵 Anything else?</div>
+      <h2 class="step-title">Is there anything you'd like the team moms to know?</h2>
+      <p class="step-sub">Anything that would help make tournament weekends extra fun.</p>
+
+      <div class="field">
+        <label for="notes">Notes for the team moms</label>
+        <textarea id="notes" name="notes"></textarea>
+      </div>
+
+      <div class="error-msg" data-error-for="submit">Something went wrong sending your answers. Please check your connection and try again.</div>
+      <div class="nav-row">
+        <button type="button" class="btn btn-secondary" data-back>Back</button>
+        <button type="submit" class="btn btn-finish" id="submitBtn">Submit</button>
+      </div>
+    </section>
+
+  </form>
+
+  <div class="done-screen" id="doneScreen">
+    <div class="done-emoji">🎉</div>
+    <h2>Thank you!</h2>
+    <p>Your responses have been submitted. We can't wait for an awesome season with EXCEL 17NW!</p>
+  </div>
+</main>
+
+<script>
+(function(){
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbxeZYPqQkQ-YmyEePTz6kUGmRhxKXGI_N690XckeSVoazqpDxVHXuAedhjxXGcSXgy3/exec";
+  const TOTAL_STEPS = 6;
+  let current = 1;
+
+  const form = document.getElementById('gtkForm');
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const progressSteps = Array.from(document.querySelectorAll('.progress-step'));
+  const doneScreen = document.getElementById('doneScreen');
+  const submitBtn = document.getElementById('submitBtn');
+
+  function showStep(n){
+    steps.forEach(s => s.classList.toggle('active', Number(s.dataset.step) === n));
+    progressSteps.forEach(p => {
+      const stepNum = Number(p.dataset.step);
+      p.classList.toggle('active', stepNum === n);
+      p.classList.toggle('done', stepNum < n);
+    });
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function clearError(scope){
+    const el = document.querySelector('[data-error-for="' + scope + '"]');
+    if(el) el.classList.remove('active');
+  }
+  function showError(scope){
+    const el = document.querySelector('[data-error-for="' + scope + '"]');
+    if(el) el.classList.add('active');
+  }
+
+  function validateStep(n){
+    if(n === 1){
+      const name = document.getElementById('name').value.trim();
+      const month = document.getElementById('birthdayMonth').value.trim();
+      const day = document.getElementById('birthdayDay').value.trim();
+      const size = document.getElementById('tshirtSize').value;
+      if(!name || !month || !day || !size){
+        showError(1);
+        return false;
+      }
+      clearError(1);
+    }
+    return true;
+  }
+
+  document.querySelectorAll('[data-next]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(!validateStep(current)) return;
+      if(current < TOTAL_STEPS){
+        current++;
+        showStep(current);
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(current > 1){
+        current--;
+        showStep(current);
+      }
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    clearError('submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    const data = new FormData(form);
+    const val = (name) => (data.get(name) || '').toString();
+    const activities = data.getAll('activities').join(', ');
+    const month = val('birthdayMonth');
+    const day = val('birthdayDay');
+    const birthday = [month, day].filter(Boolean).join(' ');
+
+    const params = new URLSearchParams();
+    params.append('Name', val('name'));
+    params.append('Birthday', birthday);
+    params.append('Favorite Color', val('favoriteColor'));
+    params.append('TShirt Size', val('tshirtSize'));
+    params.append('Food Restrictions', val('foodRestrictions'));
+    params.append('Activities', activities);
+    params.append('Photo Importance', val('photoImportance'));
+    params.append('Activity To Try', val('activityToTry'));
+    params.append('Favorite Sports Team', val('favSportsTeam'));
+    params.append('Favorite Music Artist', val('favMusicArtist'));
+    params.append('Favorite TV Show', val('favTvShow'));
+    params.append('Favorite Movie', val('favMovie'));
+    params.append('Favorite Book Series', val('favBookSeries'));
+    params.append('Favorite Scent', val('favScent'));
+    params.append('Favorite Store', val('favStore'));
+    params.append('Favorite Salty Snack', val('favSaltySnack'));
+    params.append('Favorite Sweet Snack', val('favSweetSnack'));
+    params.append('Favorite Candy', val('favCandy'));
+    params.append('Favorite Drink', val('favDrink'));
+    params.append('Favorite Go To Drink', val('favGoToDrink'));
+    params.append('Favorite Fast Food', val('favFastFood'));
+    params.append('Favorite Dessert', val('favDessert'));
+    params.append('Target Aisle', val('targetAisle'));
+    params.append('Makes Day Better', val('makesDayBetter'));
+    params.append('Obsessed With', val('obsessedWith'));
+    params.append('Never Enough Of', val('neverEnoughOf'));
+    params.append('Goodie Bag', val('goodieBag'));
+    params.append('Pick Me Up Treat', val('pickMeUpTreat'));
+    params.append('Gift Dislikes', val('giftDislikes'));
+    params.append('Notes', val('notes'));
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('progressCard').style.display = 'none';
+      doneScreen.classList.add('active');
+    })
+    .catch(() => {
+      showError('submit');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit';
+    });
+  });
+
+  showStep(current);
+})();
+</script>
+
+</body>
+</html>
