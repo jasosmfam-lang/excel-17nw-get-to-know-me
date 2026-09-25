@@ -542,43 +542,45 @@
     const day = val('birthdayDay');
     const birthday = [month, day].filter(Boolean).join(' ');
 
-    const params = new URLSearchParams();
-    params.append('Name', val('name'));
-    params.append('Birthday', birthday);
-    params.append('Favorite Color', val('favoriteColor'));
-    params.append('TShirt Size', val('tshirtSize'));
-    params.append('Food Restrictions', val('foodRestrictions'));
-    params.append('Activities', activities);
-    params.append('Photo Importance', val('photoImportance'));
-    params.append('Activity To Try', val('activityToTry'));
-    params.append('Favorite Sports Team', val('favSportsTeam'));
-    params.append('Favorite Music Artist', val('favMusicArtist'));
-    params.append('Favorite TV Show', val('favTvShow'));
-    params.append('Favorite Movie', val('favMovie'));
-    params.append('Favorite Book Series', val('favBookSeries'));
-    params.append('Favorite Scent', val('favScent'));
-    params.append('Favorite Store', val('favStore'));
-    params.append('Favorite Salty Snack', val('favSaltySnack'));
-    params.append('Favorite Sweet Snack', val('favSweetSnack'));
-    params.append('Favorite Candy', val('favCandy'));
-    params.append('Favorite Drink', val('favDrink'));
-    params.append('Favorite Go To Drink', val('favGoToDrink'));
-    params.append('Favorite Fast Food', val('favFastFood'));
-    params.append('Favorite Dessert', val('favDessert'));
-    params.append('Target Aisle', val('targetAisle'));
-    params.append('Makes Day Better', val('makesDayBetter'));
-    params.append('Obsessed With', val('obsessedWith'));
-    params.append('Never Enough Of', val('neverEnoughOf'));
-    params.append('Goodie Bag', val('goodieBag'));
-    params.append('Pick Me Up Treat', val('pickMeUpTreat'));
-    params.append('Gift Dislikes', val('giftDislikes'));
-    params.append('Notes', val('notes'));
+    const payload = {
+      name: val('name'),
+      birthday: birthday,
+      favoriteColor: val('favoriteColor'),
+      shirtSize: val('tshirtSize'),
+      foodRestrictions: val('foodRestrictions'),
+      activities: activities,
+      photoImportance: val('photoImportance'),
+      activityToTry: val('activityToTry'),
+      favoriteSportsTeam: val('favSportsTeam'),
+      favoriteMusicArtist: val('favMusicArtist'),
+      favoriteTvShow: val('favTvShow'),
+      favoriteMovie: val('favMovie'),
+      favoriteBookSeries: val('favBookSeries'),
+      favoriteScent: val('favScent'),
+      favoriteStore: val('favStore'),
+      favoriteSaltySnack: val('favSaltySnack'),
+      favoriteSweetSnack: val('favSweetSnack'),
+      favoriteCandy: val('favCandy'),
+      favoriteDrink: val('favDrink'),
+      favoriteGoToDrink: val('favGoToDrink'),
+      favoriteFastFood: val('favFastFood'),
+      favoriteDessert: val('favDessert'),
+      targetAisle: val('targetAisle'),
+      makesDayBetter: val('makesDayBetter'),
+      obsessedWith: val('obsessedWith'),
+      neverEnough: val('neverEnoughOf'),
+      goodieBag: val('goodieBag'),
+      pickMeUp: val('pickMeUpTreat'),
+      giftDislikes: val('giftDislikes'),
+      notes: val('notes')
+    };
 
     fetch(ENDPOINT, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
+      // TEMP DEBUG: mode 'no-cors' removed so we can see the real response in DevTools Network tab.
+      // Put this back to 'no-cors' once things are working.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
     })
     .then(() => {
       form.style.display = 'none';
