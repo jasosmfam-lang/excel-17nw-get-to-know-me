@@ -3,375 +3,339 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
 <title>EXCEL 17NW | Get to Know Me</title>
- 
+
 https://fonts.googleapis.com
-<link rel="preconnect" href="https://fonts.gstatic.com" leapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swaproot{
---royal:#1E4BA5;
---light:#A8D8F0;
---red:#D7263D;
---bg:#F5F8FC;
+<link rel="preconnect" href="https://fontsogleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap
+
+<style>
+
+:root{
+  --royal:#1E4BA5;
+  --light:#A8D8F0;
+  --red:#D7263D;
+  --bg:#F5F8FC;
 }
- 
+
 *{
-box-sizing:border-box;
+  box-sizing:border-box;
 }
- 
+
 body{
-margin:0;
-font-family:'Poppins',sans-serif;
-background:var(--bg);
-color:#24324A;
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:#24324A;
 }
- 
+
 .container{
-max-width:900px;
-margin:auto;
-padding:20px;
+  max-width:900px;
+  margin:auto;
+  padding:20px;
 }
- 
+
 .hero{
-position:relative;
-overflow:hidden;
-background:linear-gradient(
-135deg,
-#173D8E 0%,
-#1E4BA5 40%,
-#3F78D3 70%,
-#A8D8F0 100%
-);
- 
-color:white;
-text-align:center;
-padding:40px 25px;
-border-radius:32px;
-box-shadow:0 12px 30px rgba(30,75,165,.25);
+  background:linear-gradient(
+    135deg,
+    #173D8E 0%,
+    #1E4BA5 40%,
+    #4280E0 75%,
+    #A8D8F0 100%
+  );
+
+  color:white;
+  text-align:center;
+  padding:60px 30px;
+  border-radius:32px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(30,75,165,.25);
 }
- 
-.hero::before{
-content:"";
-position:absolute;
-width:250px;
-height:250px;
-border-radius:50%;
-background:rgba(255,255,255,.08);
-top:-80px;
-right:-60px;
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  right:-80px;
+  top:-80px;
 }
- 
-.hero::after{
-content:"";
-position:absolute;
-width:180px;
-height:180px;
-border-radius:50%;
-background:rgba(255,255,255,.06);
-bottom:-60px;
-left:-40px;
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(255,255,255,.06);
+  left:-40px;
+  bottom:-40px;
 }
- 
-.logo{
-width:230px;
-max-width:80%;
-margin-bottom:15px;
+
+.team-name{
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:.9rem;
+  opacity:.9;
 }
- 
+
 .hero h1{
-margin:0;
-font-size:2.5rem;
-font-weight:700;
+  margin:10px 0 5px;
+  font-size:3rem;
 }
- 
-.hero h2{
-margin:8px 0 15px;
-font-weight:400;
-}
- 
+
 .hero p{
-max-width:500px;
-margin:auto;
-opacity:0.95;
+  max-width:550px;
+  margin:auto;
 }
- 
+
 .accent{
-width:120px;
-height:5px;
-background:var(--red);
-border-radius:50px;
-margin:20px auto 0;
+  width:120px;
+  height:5px;
+  border-radius:20px;
+  background:var(--red);
+  margin:20px auto 0;
 }
- 
+
 .progress{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin:20px 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
 }
- 
+
 .pill{
-background:white;
-padding:10px 15px;
-border-radius:999px;
-box-shadow:0 3px 10px rgba(0,0,0,.08);
-font-size:.85rem;
+  background:white;
+  padding:10px 16px;
+  border-radius:999px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  font-size:.85rem;
 }
- 
+
 .card{
-background:white;
-margin-top:18px;
-padding:24px;
-border-radius:24px;
-box-shadow:0 6px 16px rgba(0,0,0,.06);
+  background:white;
+  padding:24px;
+  border-radius:24px;
+  margin-top:18px;
+  box-shadow:0 6px 16px rgba(0,0,0,.06);
 }
- 
+
 .card h3{
-color:var(--royal);
-margin-top:0;
+  color:var(--royal);
+  margin-top:0;
 }
- 
-label{
-display:block;
-margin-top:15px;
-font-weight:500;
+
+.card p{
+  color:#666;
 }
- 
+
 input,
 textarea,
 select{
-width:100%;
-padding:14px;
-border:1px solid #D8DFEA;
-border-radius:14px;
-margin-top:6px;
-font-family:inherit;
-font-size:14px;
+  width:100%;
+  padding:14px;
+  margin:8px 0;
+  border:1px solid #D7DEEA;
+  border-radius:14px;
+  font-family:inherit;
+  font-size:14px;
 }
- 
+
 textarea{
-min-height:120px;
-resize:vertical;
+  min-height:110px;
 }
- 
+
 .checkbox-group{
-display:grid;
-gap:10px;
-margin-top:15px;
+  display:grid;
+  gap:8px;
+  margin:12px 0;
 }
- 
+
 .checkbox-group label{
-margin:0;
-font-weight:400;
+  display:block;
 }
- 
-.note{
-color:#666;
-font-size:.9rem;
-}
- 
+
 button{
-width:100%;
-padding:18px;
-margin-top:20px;
-background:var(--red);
-color:white;
-border:none;
-border-radius:16px;
-font-size:1rem;
-font-weight:600;
-cursor:pointer;
+  width:100%;
+  background:var(--red);
+  color:white;
+  border:none;
+  border-radius:16px;
+  padding:18px;
+  font-size:1rem;
+  font-weight:600;
+  margin-top:20px;
+  cursor:pointer;
 }
- 
+
 button:hover{
-background:#bf1e32;
+  background:#ba1d31;
 }
- 
+
 .footer{
-text-align:center;
-padding:30px 0;
-color:#777;
-font-size:.85rem;
+  text-align:center;
+  padding:25px;
+  color:#777;
 }
- 
+
 @media(max-width:768px){
- 
-.container{
-padding:12px;
+
+  .container{
+    padding:12px;
+  }
+
+  .hero{
+    padding:40px 20px;
+  }
+
+  .hero h1{
+    font-size:2.1rem;
+  }
+
+  .card{
+    padding:18px;
+  }
 }
- 
-.hero{
-padding:30px 18px;
-}
- 
-.hero h1{
-font-size:2rem;
-}
- 
-.card{
-padding:18px;
-}
-}
- 
+
 </style>
+
 </head>
+
 <body>
- 
+
 <div class="container">
- 
-<div class="hero">
- 
-excel-logo.png
- 
-<h1>EXCEL 17NW</h1>
-<h2>Get to Know Me</h2>
- 
-<p>
-Help us make tournament weekends, meals,
-activities, and team events even better.
-</p>
- 
-<div class="accent"></div>
- 
+
+  <div class="hero">
+    <div class="team-name">EXCEL 17NW</div>
+
+    <h1>Get to Know Me</h1>
+
+    <p>
+      Help us make tournament weekends, meals, activities,
+      and team events even better.
+    </p>
+
+    <div class="accent"></div>
+  </div>
+
+  <div class="progress">
+    <div class="pill">🤍 About Me</div>
+    <div class="pill">🩵 Travel</div>
+    <div class="pill">🩵 Favorites</div>
+    <div class="pill">🩵 Fun</div>
+  </div>
+
+  <form>
+
+    <div class="card">
+      <h3>🤍 About Me</h3>
+
+      <input type="text" placeholder="Name">
+      <input type="text" placeholder="Birthday (MM/DD)">
+      <input type="text" placeholder="Favorite Color">
+
+      <select>
+        <option>T-Shirt Size</option>
+        <option>XS</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <h3>🩵 Food & Dietary Needs</h3>
+
+      <textarea placeholder="Please include allergies, dietary restrictions, religious restrictions, and foods you strongly dislike or avoid."></textarea>
+    </div>
+
+    <div class="card">
+      <h3>🩵 Activities & Travel</h3>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox"> Team dinners</label>
+        <label><input type="checkbox"> Mini golf</label>
+        <label><input type="checkbox"> Bowling</label>
+        <label><input type="checkbox"> Arcade</label>
+        <label><input type="checkbox"> Escape room</label>
+        <label><input type="checkbox"> Zoo/Aquarium</label>
+        <label><input type="checkbox"> Sightseeing</label>
+        <label><input type="checkbox"> Cooking or baking experiences</label>
+        <label><input type="checkbox"> Art or craft activities</label>
+        <label><input type="checkbox"> Visiting local attractions</label>
+        <label><input type="checkbox"> Aesthetic/photo-worthy spots for pictures</label>
+      </div>
+
+      <select>
+        <option>Photo opportunities importance</option>
+        <option>Very Important</option>
+        <option>Somewhat Important</option>
+        <option>Not Really Important</option>
+        <option>Don't Care Either Way</option>
+      </select>
+
+      <input type="text" placeholder="What's one activity you've always wanted to try?">
+    </div>
+
+    <div class="card">
+      <h3>🩵 Favorites</h3>
+
+      <p>Don't have a favorite? No worries! Leave it blank and move on 😊</p>
+
+      <input placeholder="Favorite Sports Team">
+      <input placeholder="Favorite Music Artist/Band">
+      <input placeholder="Favorite TV Show">
+      <input placeholder="Favorite Movie">
+      <input placeholder="Favorite Book Series">
+      <input placeholder="Favorite Scent">
+      <input placeholder="Favorite Store">
+      <input placeholder="Favorite Salty Snack">
+      <input placeholder="Favorite Sweet Snack">
+      <input placeholder="Favorite Candy">
+      <input placeholder="Favorite Drink">
+      <input placeholder="Favorite Starbucks, Dutch Bros, Sonic, or other go-to drink">
+      <input placeholder="Favorite Fast Food Restaurant">
+      <input placeholder="Favorite Dessert or Sweet Treat">
+    </div>
+
+    <div class="card">
+      <h3>🩵 Just for Fun</h3>
+
+      <textarea placeholder="If a teammate had $20 to spend on you at Target, what aisle should they shop in?"></textarea>
+
+      <textarea placeholder="What's a small thing that instantly makes your day better?"></textarea>
+
+      <textarea placeholder="What are you currently obsessed with?"></textarea>
+
+      <textarea placeholder="What can you never have too much of?"></textarea>
+
+      <textarea placeholder="If you received a surprise goodie bag, what would you hope was inside?"></textarea>
+
+      <textarea placeholder="What's your go-to pick-me-up treat?"></textarea>
+
+      <textarea placeholder="Are there any scents, colors, snacks, drinks, or types of gifts that aren't really your thing?"></textarea>
+    </div>
+
+    <div class="card">
+      <h3>🩵 Anything Else?</h3>
+
+      <textarea placeholder="Is there anything you'd like the team moms to know to help make tournament weekends extra fun?"></textarea>
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+
+  <div class="footer">
+    ❤️🤍💙 EXCEL 17NW
+  </div>
+
 </div>
- 
-<div class="progress">
-<div class="pill">🤍 About Me</div>
-<div class="pill">🩵 Travel</div>
-<div class="pill">🩵 Favorites</div>
-<div class="pill">🩵 Fun</div>
-</div>
- 
-<form>
- 
-<div class="card">
-<h3>🤍 About Me</h3>
- 
-<label>Name</label>
-<input type="text">
- 
-<label>Birthday (MM/DD)</label>
-<input type="text">
- 
-<label>Favorite Color</label>
-<input type="text">
- 
-<label>T-Shirt Size</label>
-<select>
-<option>Select Size</option>
-<option>XS</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-<option>2XL</option>
-</select>
-</div>
- 
-<div class="card">
-<h3>🩵 Food & Dietary Needs</h3>
- 
-<label>
-Are there any foods you cannot eat or prefer not to eat?
-</label>
- 
-<textarea placeholder="Please include allergies, dietary restrictions, religious restrictions, and foods you strongly dislike or avoid."></textarea>
-</div>
- 
-<div class="card">
-<h3>🩵 Activities & Travel</h3>
- 
-<label>
-Which activities would you enjoy during tournament trips?
-</label>
- 
-<div class="checkbox-group">
-<label><input type="checkbox"> Team dinners</label>
-<label><input type="checkbox"> Mini golf</label>
-<label><input type="checkbox"> Bowling</label>
-<label><input type="checkbox"> Arcade</label>
-<label><input type="checkbox"> Escape room</label>
-<label><input type="checkbox"> Zoo/Aquarium</label>
-<label><input type="checkbox"> Sightseeing</label>
-<label><input type="checkbox"> Cooking or baking experiences</label>
-<label><input type="checkbox"> Art or craft activities</label>
-<label><input type="checkbox"> Visiting local attractions</label>
-<label><input type="checkbox"> Aesthetic/photo-worthy spots for pictures</label>
-</div>
- 
-<label>How important are photo opportunities during team trips?</label>
- 
-<select>
-<option>Select One</option>
-<option>Very Important</option>
-<option>Somewhat Important</option>
-<option>Not Really Important</option>
-<option>I Don't Care Either Way</option>
-</select>
- 
-<label>What's one activity you've always wanted to try?</label>
-<input type="text">
-</div>
- 
-<div class="card">
-<h3>🩵 Favorites</h3>
- 
-<p class="note">
-Don't have a favorite for something? No worries! Leave it blank and move on 😊
-</p>
- 
-<input type="text" placeholder="Favorite Sports Team">
-<input type="text" placeholder="Favorite Music Artist/Band">
-<input type="text" placeholder="Favorite TV Show">
-<input type="text" placeholder="Favorite Movie">
-<input type="text" placeholder="Favorite Book Series">
-<input type="text" placeholder="Favorite Scent">
-<input type="text" placeholder="Favorite Store">
-<input type="text" placeholder="Favorite Salty Snack">
-<input type="text" placeholder="Favorite Sweet Snack">
-<input type="text" placeholder="Favorite Candy">
-<input type="text" placeholder="Favorite Drink">
-<input type="text" placeholder="Favorite Starbucks, Dutch Bros, Sonic, or other go-to drink">
-<input type="text" placeholder="Favorite Fast Food Restaurant">
-<input type="text" placeholder="Favorite Dessert or Sweet Treat">
-</div>
- 
-<div class="card">
-<h3>🩵 Just For Fun</h3>
- 
-<textarea placeholder="If a teammate had $20 to spend on you at Target, what aisle should they shop in?"></textarea>
- 
-<textarea placeholder="What's a small thing that instantly makes your day better?"></textarea>
- 
-<textarea placeholder="What are you currently obsessed with?"></textarea>
- 
-<textarea placeholder="What can you never have too much of?"></textarea>
- 
-<textarea placeholder="If you received a surprise goodie bag, what would you hope was inside?"></textarea>
- 
-<textarea placeholder="What's your go-to pick-me-up treat?"></textarea>
- 
-<textarea placeholder="Are there any scents, colors, snacks, drinks, or types of gifts that aren't really your thing?"></textarea>
- 
-</div>
- 
-<div class="card">
-<h3>🩵 Anything Else?</h3>
- 
-<textarea placeholder="Is there anything you'd like the team moms to know to help make tournament weekends extra fun?"></textarea>
-</div>
- 
-<button type="submit">
-Submit
-</button>
- 
-</form>
- 
-<div class="footer">
-❤️🤍💙 EXCEL 17NW
-</div>
- 
-</div>
- 
+
 </body>
 </html>
